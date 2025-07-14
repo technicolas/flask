@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Analyse de mot-clé sur une URL</title>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Analyse d'un mot-clé sur une page web</h1>
+
+        <form method="post">
+            <label>Mot-clé :</label>
+            <input type="text" name="mot_cle" value="" required>
+
+            <label>URL de la page :</label>
+            <input type="text" name="url" value="https://www." required>
+
+            <button type="submit">Analyser</button>
+        </form>
+
+        <hr>
+
+        {% if erreur_url %}
+            <p style="color: orange;">⚠️ L’URL fournie semble invalide. Assure-toi d’utiliser un format comme <code>https://site.com</code>.</p>
+        {% elif erreur %}
+            <p style="color: red;">❌ Une erreur est survenue lors de l’analyse du contenu.</p>
+        {% elif resultat is not none %}
+            {% if resultat == 0 %}
+                <p>ℹ️ Le mot-clé <strong>{{ mot_cle }}</strong> n’a pas été trouvé sur <a href="{{ url }}" target="_blank">{{ url }}</a>.</p>
+            {% else %}
+                <p>✅ Le mot-clé <strong>{{ mot_cle }}</strong> apparaît <strong>{{ resultat }}</strong> fois sur <a href="{{ url }}" target="_blank">{{ url }}</a>.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

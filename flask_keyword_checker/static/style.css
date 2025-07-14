@@ -1,0 +1,82 @@
+/* Mise en page générale */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    margin: 30px;
+}
+
+/* Conteneur centré et adaptatif */
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Formulaire vertical avec espace entre les éléments */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Champs texte */
+input[type="text"] {
+    font-family: inherit;
+    font-size: 14px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Bouton centré et limité à 25% de la largeur */
+button {
+    font-family: inherit;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #888;
+    padding: 8px;
+    width: 25%;
+    min-width: 100px;
+    align-self: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+/* Liens stylés */
+a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Marges pour les titres et paragraphes */
+label, p, h1, h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Responsive design pour petits écrans */
+@media (max-width: 600px) {
+    body {
+        margin: 10px;
+        font-size: 13px;
+    }
+
+    button {
+        width: 50%;
+    }
+}
